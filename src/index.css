@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@font-face {
+  font-family: "Rubik";
+  src: url(../public/fonts/Rubik-VariableFont_wght.ttf)
+}
+@font-face{
+  font-family:"Poppins";
+  src: url(../public/fonts/poppins/)
+}
+
+.glass {
+  @apply bg-white/30 backdrop-blur-md
+}
+body {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media(min-width:1024px){
+  body{
+    display: flex;
+    align-items:center;
+    justify-content:center;
+  }
+}
+
