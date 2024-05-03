@@ -19,6 +19,9 @@ body {
 }
 
 @media(min-width:1024px){
+  #root {
+    width: 100%;
+  }
   body{
     display: flex;
     align-items:center;

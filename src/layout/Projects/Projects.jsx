@@ -17,7 +17,7 @@ const projObj = [
 ]
 const Projects = () => {
   return (
-    <div className="flex gap-8 md:w-full md:overflow-x-scroll">
+    <div className="flex justify-between gap-4 lg:gap-2 lg:w-full overflow-x-scroll lg:overflow-x-hidden">
       {projObj.map(data => {
         return (
           <ProjectsItem project={data}></ProjectsItem>
