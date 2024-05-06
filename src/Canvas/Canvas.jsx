@@ -35,7 +35,6 @@ const Canvas = (props) => {
     const minCeiled = Math.ceil(0);
     const maxFloored = Math.floor(4);
     const randomIndex = Math.floor(Math.random() * (maxFloored - minCeiled) + minCeiled)
-    console.log(randomIndex)
     return radiusArray[randomIndex]
   }
   useEffect(() => {
@@ -47,7 +46,7 @@ const Canvas = (props) => {
     let animationFrameId
 
     let circleArray = []
-    let circleNumber = 10;
+    let circleNumber = 14;
 
     for (let i = 0; i < circleNumber; i++) {
       let x = Math.random() * document.body.clientWidth;

@@ -4,8 +4,8 @@ import MediaQuery from 'react-responsive'
 const About = () => {
   return (
     <div className="md:w-full md:flex md:justify-center">
-      <Container className="flex items-center justify-center w-full max-w-full" >
-        <div className="w-full flex justify-evenly gap-8 font-rubix text-text text-h4 md:text-h5">
+      <Container yOffset={0} className="flex items-center justify-center w-full max-w-full" >
+        <div className="pointer-events-none w-full flex justify-evenly gap-8 font-rubix text-text text-h4 md:text-h5">
           <MediaQuery minWidth={1024}>
             <img src="/images/portfolio.webp" className=" w-72 aspect-square rounded-full" />
           </MediaQuery>
@@ -23,7 +23,7 @@ const About = () => {
           </div>
         </div>
       </Container>
-    </div>
+    </div >
   )
 }
 

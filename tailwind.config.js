@@ -4,6 +4,7 @@ export default {
     "./index.html",
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
+  mode: 'jit',
   theme: {
     fontFamily: {
       poppins: ["Poppins", "sans-serif"],
@@ -21,10 +22,13 @@ export default {
     extend: {
       colors: {
         'text': '#2F1217',
-        'background': '#71638e',
+        'background': '#16131c',
         'primary': '#3724DD',
         'secondary': '#EE8ECE',
         'accent': '#E44F6A'
+      },
+      boxShadow: {
+        "glow": "inset 0 0 30px white"
       },
       keyframes: {
         wiggle: {
@@ -37,6 +41,8 @@ export default {
       }
     },
   },
-  plugins: [],
+  plugins: [
+    require("@kamona/tailwindcss-perspective")
+  ],
 }
 

@@ -1,20 +1,40 @@
 
-import React from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faUser, faCode, faInfo, faFileText } from '@fortawesome/free-solid-svg-icons'
+import React, { useRef } from 'react'
+import { useGSAP } from '@gsap/react'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 export const Header = () => {
+  const navRef = useRef();
+  const navContentsRef = useRef();
+
+  useGSAP(() => {
+    gsap.registerPlugin(ScrollTrigger)
+
+    let anime = gsap.to(navRef.current, {
+      yPercent: -200,
+      opacity: 0.4,
+      scrollTrigger: {
+        trigger: navRef.current,
+        duration: 0.2,
+        ease: "power2.inOut",
+        start: "top top",
+        end: "max",
+        onUpdate: (self) => {
+          if (self.direction === 1) {
+            anime.play()
+          } else {
+            anime.reverse()
+          }
+        }
+      }
+    })
+  })
   return (
-    <div className='w-full h-8 flex sticky top-6 z-50 items-center justify-center my-6 '>
-      <ul className=" glass flex flex-row h-auto w-4/6 items-center justify-between rounded-xl ml-10 py-0 px-8">
-        <li className="pb-0" >
-          <FontAwesomeIcon className='w-8 h-8 md:w-10 md:h-10 text-accent  hover:animate-wiggle hover:cursor-pointer' icon={faUser} />
-        </li>
-        <li className="pb-0">
-          <FontAwesomeIcon className='w-8 h-8 md:w-10 md:h-10  text-accent  hover:animate-wiggle hover:cursor-pointer' icon={faCode} />
-        </li>
+    <nav ref={navRef} className='w-full h-8 flex sticky top-6 z-50 items-center justify-center my-6 '>
+      <ul className=" glass flex flex-row h-auto w-4/6 items-center justify-center rounded-xl rounded-tl-none rounded-tr-none ml-10 py-0 px-8">
         <li>
-          <span className="
+          <span ref={navContentsRef} className="
         block
         w-full
         text-h3
@@ -24,14 +44,7 @@ export const Header = () => {
         text-center
         rounded-4xl">Toni Baglien</span>
         </li >
-        <li className="pb-0">
-          <FontAwesomeIcon className='w-8 h-8 md:w-10 md:h-10 text-accent hover:animate-wiggle hover:cursor-pointer' icon={faInfo} />
-        </li>
-        <li className="pb-0">
-          <FontAwesomeIcon className='w-8 h-8 md:w-10 md:h-10 text-accent hover:animate-wiggle hover:cursor-pointer' icon={faFileText} />
-        </li>
       </ul >
-    </div >
+    </nav >
   )
 }
-

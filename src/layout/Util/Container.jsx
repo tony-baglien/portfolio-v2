@@ -1,10 +1,10 @@
-import React, { useRef } from 'react'
-
+import Tilt from "react-parallax-tilt"
 const Container = ({ className, children }) => {
-  let containerRef = useRef()
 
   return (
-    <div ref={containerRef} className={`w-full p-8 my-2 glass rounded-xl ${className} `} > {children}</div >
+    <Tilt tiltMaxAngleX={5} tiltMaxAngleY={5}>
+      <div className={`w-full p-8 my-2 glass rounded-xl ${className} `} > {children}</div >
+    </Tilt>
   )
 }
 export default Container 
