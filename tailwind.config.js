@@ -25,7 +25,8 @@ export default {
         'background': '#16131c',
         'primary': '#3724DD',
         'secondary': '#EE8ECE',
-        'accent': '#E44F6A'
+        'accent': '#b21b37',
+        'accentLight': '#ffdae8'
       },
       boxShadow: {
         "glow": "inset 0 0 30px white"

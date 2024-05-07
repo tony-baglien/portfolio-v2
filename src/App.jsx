@@ -5,7 +5,17 @@ import About from "./layout/About/About.jsx"
 import Projects from "./layout/Projects/Projects.jsx"
 import Footer from "./layout/Footer/Footer.jsx"
 import Canvas from "./Canvas/Canvas.jsx"
+import gsap from "gsap"
 function App() {
+  const colors = gsap.utils.toArray(".colorScroll");
+  colors.forEach(color => {
+    gsap.to(color, {
+      color: '#ffdae8',
+      scrollTrigger: {
+        markers: true
+      }
+    })
+  })
 
   return (
     <>

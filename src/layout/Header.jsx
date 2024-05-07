@@ -3,6 +3,7 @@ import React, { useRef } from 'react'
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import Tilt from "react-parallax-tilt"
 
 export const Header = () => {
   const navRef = useRef();
@@ -31,10 +32,11 @@ export const Header = () => {
     })
   })
   return (
-    <nav ref={navRef} className='w-full h-8 flex sticky top-6 z-50 items-center justify-center my-6 '>
-      <ul className=" glass flex flex-row h-auto w-4/6 items-center justify-center rounded-xl rounded-tl-none rounded-tr-none ml-10 py-0 px-8">
-        <li>
-          <span ref={navContentsRef} className="
+    <Tilt tiltMaxAngleX={2} tiltMaxAngleY={2}>
+      <nav ref={navRef} className='w-full h-8 flex sticky top-6 z-50 items-center justify-center my-6 '>
+        <ul className=" glass flex flex-row h-auto w-4/6 items-center justify-center rounded-xl rounded-tl-none rounded-tr-none ml-10 py-0 px-8">
+          <li>
+            <span ref={navContentsRef} className="
         block
         w-full
         text-h3
@@ -43,8 +45,9 @@ export const Header = () => {
         text-accent
         text-center
         rounded-4xl">Toni Baglien</span>
-        </li >
-      </ul >
-    </nav >
+          </li >
+        </ul >
+      </nav >
+    </Tilt>
   )
 }
