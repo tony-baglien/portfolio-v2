@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from 'react'
-const Canvas = (props) => {
+const Canvas = () => {
   const canvasRef = useRef(null)
 
   class Circle {
@@ -9,13 +9,24 @@ const Canvas = (props) => {
       this.radius = circleObj.radius;
       this.color = circleObj.color;
       this.vx = circleObj.vx;
-      this.vy = circleObj.vy
+      this.vy = circleObj.vy;
 
     }
+    colorUpdate() {
+      let colorArray = ['#F2AEDB', '#7166D2', '#E44F6A']
+      const min = 0;
+      const max = 2;
+      const minCeiled = Math.ceil(min);
+      const maxFloored = Math.floor(max);
+      let randomInterval = Math.floor(Math.random() * (maxFloored - minCeiled + 1) + minCeiled);
+      let chosenColor = colorArray[randomInterval]
+
+      return chosenColor
+    }
     draw(context) {
-      this.update()
+      this.update();
       context.beginPath();
-      context.fillStyle = 'whitesmoke';
+      context.fillStyle = this.color;
       context.arc(this.xpos, this.ypos, this.radius, 0, Math.PI * 2)
       context.fill();
     }
@@ -29,6 +40,17 @@ const Canvas = (props) => {
         this.vy = -this.vy
       }
     }
+  }
+  function getRandomColor() {
+    let colorArray = ['#F2AEDB', '#7166D2', '#E44F6A']
+    const min = 0;
+    const max = 2;
+    const minCeiled = Math.ceil(min);
+    const maxFloored = Math.floor(max);
+    let randomInterval = Math.floor(Math.random() * (maxFloored - minCeiled + 1) + minCeiled);
+    let chosenColor = colorArray[randomInterval]
+
+    return chosenColor
   }
   function getRandomRadius() {
     let radiusArray = [[5, 1.25], [50, -1], [75, .75], [125, .5]]
@@ -65,7 +87,7 @@ const Canvas = (props) => {
         radius: radius,
         vx: -vx,
         vy: vy,
-        color: "#000"
+        color: getRandomColor()
       })
 
       circleArray.push(circle)
@@ -84,7 +106,7 @@ const Canvas = (props) => {
       window.cancelAnimationFrame(animationFrameId)
     }
   })
-  return <canvas className="absolute  left-0 top-0 blur-3xl " ref={canvasRef} />
+  return <canvas className="transition absolute  left-0 top-0 blur-3xl " ref={canvasRef} />
 }
 
 export default Canvas

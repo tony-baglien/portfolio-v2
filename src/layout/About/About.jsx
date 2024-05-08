@@ -1,10 +1,10 @@
 import Container from '../Util/Container.jsx'
 import MediaQuery from 'react-responsive'
-import Tilt from "react-parallax-tilt"
+import TiltWrapper from '../Util/TiltWrapper.jsx'
 
 const About = () => {
   return (
-    <Tilt tiltMaxAngleX={2} tiltMaxAngleY={2}>
+    <TiltWrapper className={"px-4 md:px-8"} xTilt={2} yTilt={2}>
       <div className="md:w-full md:flex md:justify-center">
         <Container yOffset={0} className="flex items-center justify-center w-full max-w-full" >
           <div className="pointer-events-none w-full flex justify-evenly gap-8 font-rubix text-text text-h4 md:text-h5">
@@ -26,7 +26,7 @@ const About = () => {
           </div>
         </Container>
       </div >
-    </Tilt>
+    </TiltWrapper>
   )
 }
 

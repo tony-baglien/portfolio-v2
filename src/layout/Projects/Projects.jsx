@@ -1,7 +1,6 @@
 import React from 'react'
 import ProjectsItem from './ProjectsItem'
-import Tilt from 'react-parallax-tilt'
-
+import TiltWrapper from '../Util/TiltWrapper'
 const projObj = [
   {
     'title': 'Hack Type',
@@ -22,14 +21,16 @@ const projObj = [
 ]
 const Projects = () => {
   return (
-    <div className="flex justify-between gap-4 lg:gap-2 lg:w-full overflow-x-scroll lg:overflow-x-visible mb-8">
-      {projObj.map(data => {
-        return (
-          <Tilt tiltMaxAngleX={5} tiltMaxAngleY={5}>
-            <ProjectsItem project={data} />
-          </Tilt>
-        )
-      })}
+    <div className="projectsWrapper px-4 md:px-8 mb-8 ">
+      <div className="projectsInner flex flex-col lg:flex-row justify-between gap-4 lg:gap-2">
+        {projObj.map(data => {
+          return (
+            <TiltWrapper className="w-full flex-shrink-0 lg:flex-shrink" xTilt={5} yTilt={5}>
+              <ProjectsItem project={data} />
+            </TiltWrapper>
+          )
+        })}
+      </div>
     </div >
   )
 }

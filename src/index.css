@@ -16,9 +16,8 @@
 body {
  background: rgb(55,36,221);
 background: linear-gradient(0deg, rgba(55,36,221,1) 0%, rgba(64,46,208,1) 4%, rgba(113,99,142,1) 100%); 
-padding-left: 2rem;
-padding-right: 2rem;
 }
+
 
 @media(min-width:1024px){
   #root {
