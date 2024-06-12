@@ -1,7 +1,8 @@
-import React from 'react'
+
 import Container from '../Util/Container'
 import GithubIcon from '../../images/GithubIcon'
 import LinkedInIcon from '../../images/LinkedInIcon'
+import ResumeIcon from '../../images/ResumeIcon'
 import TiltWrapper from '../Util/TiltWrapper'
 const Footer = () => {
   return (
@@ -15,6 +16,9 @@ const Footer = () => {
           </a>
           <a href="https://www.linkedin.com/in/tonybaglien/" target="_blank">
             <LinkedInIcon width="50px" height="50px" fillColor="#ffdae8" />
+          </a>
+          <a href="/files/resume.pdf" target="_blank">
+            <ResumeIcon width="45px" height="50px" fillColor="#ffdae8" />
           </a>
         </div>
       </Container>
