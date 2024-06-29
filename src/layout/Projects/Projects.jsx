@@ -10,7 +10,7 @@ const projObj = [
   {
     'title': 'React Meals',
     'content': `If there is one thing I love more than coding, it's food. Using the React framework, I created a food ordering application, that let's you select your favorite meals and add them to your cart. The downside? You can't actually order any of it.`,
-    'url': 'https://react-eats-hsuf.onrender.com'
+    'url': 'https://react-meals-fr.onrender.com'
   },
   {
     'title': 'Keyworks',
@@ -25,7 +25,7 @@ const Projects = () => {
       <div className="projectsInner flex flex-col lg:flex-row justify-between gap-4 lg:gap-2">
         {projObj.map(data => {
           return (
-            <TiltWrapper className="w-full flex-shrink-0 lg:flex-shrink" xTilt={5} yTilt={5}>
+            <TiltWrapper key={data.title} className="w-full flex-shrink-0 lg:flex-shrink" xTilt={5} yTilt={5}>
               <ProjectsItem project={data} />
             </TiltWrapper>
           )
